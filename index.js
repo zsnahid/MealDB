@@ -42,7 +42,7 @@ const getFoodsByFirstLetter = async (firstLetter) => {
 };
 
 function displayAllFoods(meals) {
-  const allFoodsContainer = document.getElementById("all-foods-container");
+  const remainingFoodsContainer = document.getElementById("remaining-foods-container");
 
   meals.forEach((meal) => {
     const {
@@ -71,16 +71,24 @@ function displayAllFoods(meals) {
         </button>
       </div>
     `;
-    allFoodsContainer.append(div);
+    remainingFoodsContainer.append(div);
   });
 }
 
 function getAllFoods() {
-  for (let i = 97; i <= 122; i++) {
+  for (let i = 98; i <= 122; i++) {
     const char = String.fromCharCode(i);
     getFoodsByFirstLetter(char);
   }
 }
+
+const getFoodsWithFirstLetterA = async() => {
+  const response = await fetch("https://www.themealdb.com/api/json/v1/1/search.php?f=a");
+  const data = await response.json();
+  displayAllFoods(data.meals);
+}
+
+getFoodsWithFirstLetterA();
 
 const getDetails = async (mealId) => {
   console.log(mealId);
@@ -149,4 +157,3 @@ function displayDetails(meal) {
 }
 
 getCategories();
-getAllFoods();
