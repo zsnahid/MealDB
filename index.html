@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasty HUT</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon" />
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- DaisyUI + Tailwind CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#FC8A06",
+            },
+            fontFamily: {
+              poppins: "Poppins",
+            },
+            backgroundImage: {
+              "hero-img": "url(./images/banner_1.png)",
+            },
+            gridTemplateColumns: {
+              auto: "repeat(auto-fit, minmax(300px, 1fr))",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      #categories-container::-webkit-scrollbar {
+        display: none;
+      }
+      #categories-container {
+        scrollbar-width: none;
+      }
+      .btn.bg-primary {
+        color: white;
+        height: fit-content;
+        min-height: fit-content;
+        padding: 0.75rem 1.75rem;
+        border-style: none;
+        border-radius: 2rem;
+      }
+      .btn.bg-primary:hover {
+        background-color: rgb(217 119 6);
+      }
+      img {
+        object-fit: cover;
+        object-position: center;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="font-poppins">
+    <header>
+      <!-- navbar start -->
+      <nav
+        class="flex justify-between items-center py-4 w-11/12 max-w-screen-2xl mx-auto"
+      >
+        <p class="font-bold text-xl">Tasty HUT</p>
+        <button class="btn bg-primary">Sign Up</button>
+      </nav>
+      <!-- navbar end -->
+
+      <!-- hero start -->
+      <div class="hero min-h-96 bg-hero-img bg-cover bg-center">
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-neutral-content text-center">
+          <div class="max-w-lg py-28">
+            <h1 class="mb-5 text-5xl font-bold text-white">
+              Taste Our Delicious Best Foods
+            </h1>
+            <p class="mb-5">
+              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
+              et a id nisi.
+            </p>
+            <div class="flex justify-between bg-white rounded-full">
+              <input
+                type="text"
+                class="w-11/12 rounded-full px-5"
+                placeholder="Search any food"
+              />
+              <button class="btn bg-primary transform-none">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- hero end -->
+    </header>
+
+    <main class="w-11/12 max-w-screen-2xl mx-auto">
+      <section class="py-20">
+        <h2 class="font-bold text-3xl mb-5">Order from Popular Categories</h2>
+        <div id="categories-container" class="flex gap-5 overflow-x-auto"></div>
+      </section>
+      <section>
+        <h2 class="font-bold text-3xl mb-10 text-center">
+          Your Favorite Foods
+        </h2>
+        <div id="all-foods-container" class="grid grid-cols-2 gap-10 mb-10"></div>
+        <div class="flex justify-center">
+          <button class="btn bg-primary">Show More</button>
+        </div>
+        <!-- Open the modal using ID.showModal() method -->
+
+        <dialog id="details_modal" class="modal">
+          <div class="modal-box w-fit">
+            <form method="dialog">
+              <button
+                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </button>
+            </form>
+            <div id="modal-content"></div>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn bg-primary text-white">Close</button>
+              </form>
+            </div>
+          </div>
+        </dialog>
+      </section>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
