@@ -37,7 +37,7 @@
               "hero-img": "url(./images/banner_1.png)",
             },
             gridTemplateColumns: {
-              auto: "repeat(auto-fit, minmax(300px, 1fr))",
+              auto: "repeat(auto-fit, minmax(200px, 1fr))",
             },
           },
         },
@@ -45,11 +45,11 @@
     </script>
 
     <style>
-      #categories-container::-webkit-scrollbar {
+      #categories-container::-webkit-scrollbar-thumb {
         display: none;
       }
-      #categories-container {
-        scrollbar-width: none;
+      #categories-container{
+        scrollbar-width: thin;
       }
       .btn.bg-primary {
         color: white;
@@ -110,16 +110,25 @@
     <main class="w-11/12 max-w-screen-2xl mx-auto">
       <section class="py-20">
         <h2 class="font-bold text-3xl mb-5">Order from Popular Categories</h2>
-        <div id="categories-container" class="flex gap-5 overflow-x-auto"></div>
+        <div id="categories-container" class="flex gap-5 overflow-x-auto mb-10"></div>
+        <div id="category-foods-container" class="grid grid-cols-5 gap-8"></div>
       </section>
       <section>
         <h2 class="font-bold text-3xl mb-10 text-center">
           Your Favorite Foods
         </h2>
-        <div id="foods-with-first-letter-a" class="grid grid-cols-2 gap-10 mb-10"></div>
-        <div id="remaining-foods-container" class="grid grid-cols-2 gap-10 mb-10"></div>
+        <div
+          id="foods-with-first-letter-a"
+          class="grid grid-cols-2 gap-10 mb-10"
+        ></div>
+        <div
+          id="remaining-foods-container"
+          class="grid grid-cols-2 gap-10 mb-10"
+        ></div>
         <div class="flex justify-center">
-          <button onclick="getAllFoods()" class="btn bg-primary">Show More</button>
+          <button onclick="getAllFoods()" class="btn bg-primary">
+            Show More
+          </button>
         </div>
         <!-- Open the modal using ID.showModal() method -->
 

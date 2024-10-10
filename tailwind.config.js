@@ -10,7 +10,7 @@ module.exports = {
         poppins: "Poppins",
       },
       gridTemplateColumns: {
-        auto: "repeat(auto-fit, minmax(300px, 1fr))",
+        auto: "repeat(auto-fit, minmax(200px, 1fr))",
       },
       backgroundImage: {
         "hero-img": "url(./images/banner_1.png)",
