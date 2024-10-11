@@ -69,7 +69,6 @@ function displayAllFoods(meals) {
   const remainingFoodsContainer = document.getElementById(
     "remaining-foods-container"
   );
-
   meals.forEach((meal) => {
     const {
       idMeal,
@@ -101,10 +100,10 @@ function displayAllFoods(meals) {
   });
 }
 
-function getAllFoods() {
+async function getAllFoods() {
   for (let i = 98; i <= 122; i++) {
     const char = String.fromCharCode(i);
-    getFoodsByFirstLetter(char);
+    await getFoodsByFirstLetter(char);
   }
 }
 
@@ -210,4 +209,5 @@ function displayFoodsOfCategory(meals) {
 
 getCategories();
 getFoodsWithFirstLetterA();
+getAllFoods();
 getFoodsByCategory("Beef");
